@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     {% extends "main.html" %}
+
+     {% block content %}
+    <h1>Cостав:</h1>
+     <div>
+         <div>
+             {% for member in memberss %}
+
+             <div>
+                 <h3>{{member.id}}.<a href = "{% url 'mem' member.id %}" > {{member.name}}</a></h3>
+             </div>
+
+             {% endfor %}
+         </div>
+     </div>
+    {% endblock %}
+
+</body>
+</html>
