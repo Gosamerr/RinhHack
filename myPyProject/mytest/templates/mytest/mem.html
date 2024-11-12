@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
- <h1>{{mem.name}}</h1>
+{% extends "main.html" %}
+
+ {% block content %}
+    <h1>{{mem.name}} -- {{mem.short_info..}}</h1>
+{% endblock %}
+
+
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Members, Project
+from .models import Member, Project
 
-admin.site.register(Members)
+admin.site.register(Member)
 admin.site.register(Project)
+
 # Register your models here.

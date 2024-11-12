@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Сумерки</title>
 </head>
 <body>
     {% extends "main.html" %}
 
      {% block content %}
     <h1>Привет от команды "Сумерки"</h1>
+
+    <h2><a href = "{% url 'members'%}" > О нас</a> <center><a href = "{% url 'about_project'%}" > О проекте</a></center></h2>
     {% endblock %}
 
 </body>

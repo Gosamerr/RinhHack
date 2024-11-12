@@ -1,30 +1,24 @@
 from django.db import models
 
 
-class Members(models.Model):
+class Member(models.Model):
+    project_topic = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=60)
-    short_info = models.CharField(max_length=150)
-
-    pub_date = models.DateTimeField("date published")
+    short_info = models.TextField(null = True, blank = True)
+    #participants =
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
-    def full_info(self):
-        info_full =  self.name + " " + self.surname + " " + self.short_info + " " + self.pub_date
-        return info_full
-
 class Project(models.Model):
-    members = models.ForeignKey(Members, on_delete=models.CASCADE)
-    WAY_OF_PROJECTS = {
-        'KS':"Кибербезопасность",
-        'IP':"Импортозамещение в программном обеспечении",
-        'BD&II':"Большие данные и искусственный интеллект",
-    }
-    way = models.CharField(max_length=5, choices=WAY_OF_PROJECTS)
-    topic = models.CharField(max_length=200)
+    # host=
+    topic = models.TextField()
 
-    workbar = models.IntegerField(default=0)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
-        return self.way
+        return self.topic
